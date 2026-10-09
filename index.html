@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaWorld | Explore the Ocean</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Poppins', 'sans-serif'] },
+      colors: {
+        ocean: '#061D32',
+        deep: '#031322',
+        aqua: '#21D4E8',
+        sea: '#087E8B',
+        mist: '#EAFBFC'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; }
+.hero {
+  background: linear-gradient(90deg, rgba(3,19,34,.94), rgba(3,19,34,.45), rgba(3,19,34,.08)),
+  url('https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=2000&q=90') center/cover;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin-top: 12px;
+  background: #21D4E8;
+  border-radius: 10px;
+}
+.animal-card { transition: transform .3s, box-shadow .3s; }
+.animal-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(33,212,232,.13);
+}
+.gallery-img { transition: transform .4s; }
+.gallery-img:hover { transform: scale(1.04); }
+</style>
+</head>
+
+<body class="bg-ocean text-white">
+
+<!-- NAVBAR -->
+<nav class="sticky top-0 z-50 bg-deep/95 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-2">
+      <span class="text-3xl">〰</span>
+      <span class="text-2xl font-extrabold">Aqua<span class="text-aqua">World</span></span>
+    </a>
+
+    <div id="navLinks" class="hidden md:flex items-center gap-7 text-sm">
+      <a class="hover:text-aqua" href="#home">Home</a>
+      <a class="hover:text-aqua" href="#about">About</a>
+      <a class="hover:text-aqua" href="#exhibits">Exhibits</a>
+      <a class="hover:text-aqua" href="#gallery">Gallery</a>
+      <a class="hover:text-aqua" href="#experiences">Experiences</a>
+      <a class="hover:text-aqua" href="#tickets">Tickets</a>
+      <a class="hover:text-aqua" href="#contact">Contact</a>
+    </div>
+
+    <a href="#tickets" class="hidden sm:inline-block bg-aqua text-ocean font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-white transition">
+      Buy Tickets
+    </a>
+    <button id="menuBtn" class="md:hidden text-2xl text-aqua" aria-label="Toggle navigation">☰</button>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-5 space-y-3 bg-deep">
+    <a class="block hover:text-aqua" href="#home">Home</a>
+    <a class="block hover:text-aqua" href="#about">About</a>
+    <a class="block hover:text-aqua" href="#exhibits">Exhibits</a>
+    <a class="block hover:text-aqua" href="#gallery">Gallery</a>
+    <a class="block hover:text-aqua" href="#experiences">Experiences</a>
+    <a class="block hover:text-aqua" href="#tickets">Tickets</a>
+    <a class="block hover:text-aqua" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero min-h-[600px] flex items-center">
+  <div class="max-w-7xl mx-auto px-6 py-24 w-full">
+    <div class="max-w-2xl">
+      <p class="text-aqua uppercase tracking-[5px] text-sm font-semibold mb-5">
+        Discover · Learn · Protect
+      </p>
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+        Dive Into A<br>
+        <span class="text-aqua">World of Wonder</span>
+      </h1>
+      <p class="mt-6 text-gray-200 leading-8 max-w-xl">
+        Discover a magical underwater universe filled with colorful coral
+        reefs, incredible marine creatures and unforgettable adventures.
+        Explore the mysteries of the ocean with your family and friends.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="#exhibits" class="bg-aqua text-ocean px-7 py-3.5 rounded-full font-bold hover:bg-white transition">
+          Explore Exhibits →
+        </a>
+        <a href="#tickets" class="border border-white px-7 py-3.5 rounded-full font-semibold hover:bg-white hover:text-ocean transition">
+          Plan Your Visit
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-8 mt-12 text-sm">
+        <div><p class="text-3xl font-bold text-aqua">25+</p><p class="text-gray-300">Marine Exhibits</p></div>
+        <div><p class="text-3xl font-bold text-aqua">10K+</p><p class="text-gray-300">Marine Creatures</p></div>
+        <div><p class="text-3xl font-bold text-aqua">1M+</p><p class="text-gray-300">Happy Visitors</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="bg-[#092940] border-y border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-7 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div><p class="text-3xl mb-2">🐠</p><h3 class="font-semibold">Discover Marine Life</h3><p class="text-gray-400 text-sm mt-1">Explore ocean species</p></div>
+    <div><p class="text-3xl mb-2">🔬</p><h3 class="font-semibold">Learn & Discover</h3><p class="text-gray-400 text-sm mt-1">Interactive education</p></div>
+    <div><p class="text-3xl mb-2">👨‍👩‍👧</p><h3 class="font-semibold">Family Adventures</h3><p class="text-gray-400 text-sm mt-1">Memories for everyone</p></div>
+    <div><p class="text-3xl mb-2">🌊</p><h3 class="font-semibold">Protect Our Oceans</h3><p class="text-gray-400 text-sm mt-1">Conservation matters</p></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 bg-mist text-ocean">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+    <div class="relative">
+      <img class="rounded-3xl shadow-xl w-full h-[420px] object-cover"
+      src="https://images.openai.com/static-rsc-4/AQafa0W2YcXdHcbAsDqSrcb9em3Kgfik0cQ57gyGP1lNk9mvPS82tmASG4wfKzBFMvFtnEUlqhtA6mvrbjhUPwt2xdEsGjSjSJGyD_z4_r9C5HPztq4CYUPdyLY0OqyFzGsltz5E2TVgztMqoSEHcs9mEuszjmZ2ZZhD8dD8YTnjGf8Asb738pXE45MqPS_d?purpose=fullsize"
+      alt="Visitors exploring an underwater aquarium"
+      loading="lazy">
+      <div class="absolute -bottom-5 -right-4 md:right-[-18px] bg-ocean text-white p-6 rounded-2xl shadow-xl">
+        <p class="text-3xl font-extrabold text-aqua">10+</p>
+        <p class="text-sm">Years of Discovery</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-sea uppercase tracking-[4px] text-sm font-bold mb-3">Welcome to AquaWorld</p>
+      <h2 class="section-title text-3xl md:text-4xl font-extrabold leading-tight">
+        More Than Just an Aquarium
+      </h2>
+      <p class="mt-7 leading-8 text-gray-700">
+        AquaWorld is a place where the wonders of the ocean come alive.
+        Our aquarium brings visitors closer to marine life through
+        fascinating exhibits, educational experiences and conservation
+        activities designed for every age group.
+      </p>
+      <p class="mt-4 leading-8 text-gray-700">
+        From tiny seahorses to magnificent sharks, every creature has a
+        story to tell. Our goal is to help people understand the importance
+        of healthy oceans and inspire everyone to protect aquatic habitats.
+      </p>
+      <div class="grid grid-cols-3 gap-4 mt-8 border-t border-gray-300 pt-6">
+        <div><p class="text-2xl font-bold">25+</p><p class="text-xs text-gray-600 mt-1">Exhibits</p></div>
+        <div><p class="text-2xl font-bold">100+</p><p class="text-xs text-gray-600 mt-1">Species Groups</p></div>
+        <div><p class="text-2xl font-bold">365</p><p class="text-xs text-gray-600 mt-1">Days of Wonder</p></div>
+      </div>
+      <a href="#experiences" class="inline-block mt-7 bg-ocean text-white rounded-full px-6 py-3 hover:bg-sea transition">
+        Discover Our Mission →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EXHIBITS -->
+<section id="exhibits" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-12">
+      <div>
+        <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Explore the Blue</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Amazing Marine Life</h2>
+        <p class="text-gray-400 mt-4 max-w-xl">
+          Meet the extraordinary creatures that make our oceans beautiful.
+          Select a category to discover different underwater worlds.
+        </p>
+      </div>
+      <div id="filters" class="flex flex-wrap gap-2">
+        <button data-filter="all" class="filter-btn bg-aqua text-ocean px-4 py-2 rounded-full text-sm font-semibold">All</button>
+        <button data-filter="fish" class="filter-btn border border-white/20 px-4 py-2 rounded-full text-sm hover:border-aqua">Fish</button>
+        <button data-filter="ocean" class="filter-btn border border-white/20 px-4 py-2 rounded-full text-sm hover:border-aqua">Ocean Giants</button>
+        <button data-filter="reef" class="filter-btn border border-white/20 px-4 py-2 rounded-full text-sm hover:border-aqua">Reef Life</button>
+      </div>
+    </div>
+
+    <div id="animalGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+      <article data-category="fish" class="animal-card bg-[#0A2A43] rounded-2xl overflow-hidden border border-white/10">
+        <img class="w-full h-56 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=85" alt="Colorful tropical fish">
+        <div class="p-6">
+          <span class="text-aqua text-xs uppercase tracking-widest">Tropical Zone</span>
+          <h3 class="text-xl font-bold mt-2">Clownfish</h3>
+          <p class="text-gray-400 text-sm leading-6 mt-3">Small, colorful reef fish famous for their orange bodies and white stripes. They form a fascinating partnership with sea anemones.</p>
+          <p class="mt-4 text-sm text-aqua">Habitat: Coral reefs</p>
+        </div>
+      </article>
+
+      <article data-category="ocean" class="animal-card bg-[#0A2A43] rounded-2xl overflow-hidden border border-white/10">
+        <img class="w-full h-56 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=800&q=85" alt="Shark swimming underwater">
+        <div class="p-6">
+          <span class="text-aqua text-xs uppercase tracking-widest">Ocean Giants</span>
+          <h3 class="text-xl font-bold mt-2">Sharks</h3>
+          <p class="text-gray-400 text-sm leading-6 mt-3">Discover the adaptations of these remarkable ocean predators and why sharks play an important role in marine ecosystems.</p>
+          <p class="mt-4 text-sm text-aqua">Habitat: Oceans worldwide</p>
+        </div>
+      </article>
+
+      <article data-category="ocean" class="animal-card bg-[#0A2A43] rounded-2xl overflow-hidden border border-white/10">
+        <img class="w-full h-56 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=800&q=85" alt="Sea turtle underwater">
+        <div class="p-6">
+          <span class="text-aqua text-xs uppercase tracking-widest">Ocean Travelers</span>
+          <h3 class="text-xl font-bold mt-2">Sea Turtles</h3>
+          <p class="text-gray-400 text-sm leading-6 mt-3">Gentle marine reptiles that travel across vast oceans. Learn about nesting beaches, migration and the threats they face.</p>
+          <p class="mt-4 text-sm text-aqua">Habitat: Tropical and temperate seas</p>
+        </div>
+      </article>
+
+      <article data-category="reef" class="animal-card bg-[#0A2A43] rounded-2xl overflow-hidden border border-white/10">
+        <img class="w-full h-56 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=800&q=85" alt="Colorful coral reef ecosystem">
+        <div class="p-6">
+          <span class="text-aqua text-xs uppercase tracking-widest">Reef Life</span>
+          <h3 class="text-xl font-bold mt-2">Coral Gardens</h3>
+          <p class="text-gray-400 text-sm leading-6 mt-3">Explore colorful underwater habitats that support a huge variety of marine life. Discover why coral reef conservation is essential.</p>
+          <p class="mt-4 text-sm text-aqua">Habitat: Shallow tropical seas</p>
+        </div>
+      </article>
+
+      <article data-category="reef" class="animal-card bg-[#0A2A43] rounded-2xl overflow-hidden border border-white/10">
+        <img class="w-full h-56 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=85" alt="Jellyfish floating in water">
+        <div class="p-6">
+          <span class="text-aqua text-xs uppercase tracking-widest">Floating Wonders</span>
+          <h3 class="text-xl font-bold mt-2">Jellyfish</h3>
+          <p class="text-gray-400 text-sm leading-6 mt-3">Watch these delicate drifters move gracefully through the water and discover how they survive without bones.</p>
+          <p class="mt-4 text-sm text-aqua">Habitat: Marine waters worldwide</p>
+        </div>
+      </article>
+
+      <article data-category="fish" class="animal-card bg-[#0A2A43] rounded-2xl overflow-hidden border border-white/10">
+        <img class="w-full h-56 object-cover" loading="lazy" src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=800&q=85" alt="Colorful fish in a reef">
+        <div class="p-6">
+          <span class="text-aqua text-xs uppercase tracking-widest">Reef Neighbors</span>
+          <h3 class="text-xl font-bold mt-2">Butterflyfish</h3>
+          <p class="text-gray-400 text-sm leading-6 mt-3">With striking patterns and bright colors, butterflyfish are among the most recognizable residents of coral reef ecosystems.</p>
+          <p class="mt-4 text-sm text-aqua">Habitat: Tropical coral reefs</p>
+        </div>
+      </article>
+
+    </div>
+    <p id="noResults" class="hidden text-center text-gray-400 py-10">No exhibits found in this category.</p>
+  </div>
+</section>
+
+<!-- UNDERWATER EXPERIENCE -->
+<section id="experiences" class="py-24 px-6 bg-[#092940]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Make Memories</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Experiences for Everyone</h2>
+      <p class="text-gray-400 mt-4 leading-7">Go beyond looking at the ocean. Learn, explore and enjoy activities designed for curious minds of all ages.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7">
+      <div class="bg-ocean rounded-2xl p-8 border border-white/10 hover:border-aqua transition">
+        <div class="text-4xl mb-5">🪸</div>
+        <h3 class="text-xl font-bold">Interactive Discovery</h3>
+        <p class="text-gray-400 mt-4 leading-7">Discover marine habitats through engaging displays, guided activities and fascinating facts about life beneath the waves.</p>
+        <p class="text-aqua mt-5 text-sm">Perfect for curious explorers</p>
+      </div>
+      <div class="bg-ocean rounded-2xl p-8 border border-white/10 hover:border-aqua transition">
+        <div class="text-4xl mb-5">🎓</div>
+        <h3 class="text-xl font-bold">School Programmes</h3>
+        <p class="text-gray-400 mt-4 leading-7">Give students a memorable learning experience with educational visits about ocean food chains, biodiversity and environmental protection.</p>
+        <p class="text-aqua mt-5 text-sm">Learning beyond the classroom</p>
+      </div>
+      <div class="bg-ocean rounded-2xl p-8 border border-white/10 hover:border-aqua transition">
+        <div class="text-4xl mb-5">📸</div>
+        <h3 class="text-xl font-bold">Underwater Photography</h3>
+        <p class="text-gray-400 mt-4 leading-7">Capture colorful fish, fascinating textures and beautiful aquarium views. Follow exhibit photography rules to protect animals and visitors.</p>
+        <p class="text-aqua mt-5 text-sm">Capture your ocean memories</p>
+      </div>
+      <div class="bg-ocean rounded-2xl p-8 border border-white/10 hover:border-aqua transition">
+        <div class="text-4xl mb-5">👨‍👩‍👧</div>
+        <h3 class="text-xl font-bold">Family Exploration</h3>
+        <p class="text-gray-400 mt-4 leading-7">Spend quality time together discovering unusual species, learning fun facts and enjoying an educational day out.</p>
+        <p class="text-aqua mt-5 text-sm">Fun for all generations</p>
+      </div>
+      <div class="bg-ocean rounded-2xl p-8 border border-white/10 hover:border-aqua transition">
+        <div class="text-4xl mb-5">🔍</div>
+        <h3 class="text-xl font-bold">Marine Science</h3>
+        <p class="text-gray-400 mt-4 leading-7">Explore how scientists study marine ecosystems, understand animal adaptations and monitor changes in ocean environments.</p>
+        <p class="text-aqua mt-5 text-sm">Discover science in action</p>
+      </div>
+      <div class="bg-ocean rounded-2xl p-8 border border-white/10 hover:border-aqua transition">
+        <div class="text-4xl mb-5">🌱</div>
+        <h3 class="text-xl font-bold">Conservation Workshops</h3>
+        <p class="text-gray-400 mt-4 leading-7">Learn practical ways to reduce plastic waste, protect waterways and encourage responsible habits that benefit marine life.</p>
+        <p class="text-aqua mt-5 text-sm">Small actions, lasting impact</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Visual Journey</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Explore the Underwater World</h2>
+        <p class="text-gray-400 mt-4">A glimpse into the extraordinary beauty of aquatic life.</p>
+      </div>
+      <p class="text-aqua text-sm">Nature · Discovery · Wonder</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img class="gallery-img rounded-2xl h-48 md:h-72 w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=700&q=85" alt="Underwater reef">
+      <img class="gallery-img rounded-2xl h-48 md:h-72 w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=700&q=85" alt="Tropical fish">
+      <img class="gallery-img rounded-2xl h-48 md:h-72 w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=700&q=85" alt="Jellyfish in water">
+      <img class="gallery-img rounded-2xl h-48 md:h-72 w-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=700&q=85" alt="Shark in the ocean">
+    </div>
+  </div>
+</section>
+
+<!-- CONSERVATION -->
+<section class="py-24 px-6 bg-mist text-ocean">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="text-sea uppercase tracking-[4px] text-sm font-bold mb-3">Our Responsibility</p>
+      <h2 class="section-title text-3xl md:text-4xl font-extrabold">Every Drop Makes a Difference</h2>
+      <p class="mt-7 text-gray-700 leading-8">
+        Healthy oceans support incredible biodiversity, help regulate the
+        climate and provide livelihoods for millions of people. Protecting
+        marine ecosystems starts with understanding how our everyday choices
+        affect the natural world.
+      </p>
+      <p class="mt-4 text-gray-700 leading-8">
+        AquaWorld encourages visitors to learn about ocean conservation,
+        responsible consumption and the importance of protecting aquatic
+        habitats for future generations.
+      </p>
+      <ul class="mt-6 space-y-4 text-gray-800">
+        <li>✓ Reduce single-use plastic whenever possible</li>
+        <li>✓ Keep beaches, rivers and waterways clean</li>
+        <li>✓ Respect marine wildlife and its natural habitat</li>
+        <li>✓ Share knowledge about ocean conservation</li>
+      </ul>
+      <a href="#contact" class="inline-block mt-8 bg-ocean text-white px-7 py-3 rounded-full hover:bg-sea transition">Get Involved →</a>
+    </div>
+    <img class="rounded-3xl h-[420px] w-full object-cover shadow-xl" loading="lazy"
+      src="https://images.openai.com/static-rsc-4/1AurDSmN_rdeANGllpwxTgiL9wEqasmjdX7EPk6vlUwXvFFvJTlgrdbc4YvFBT5fqNrVkLUI20L5A9kRgTV7XJrlSwfT2VSbuSWMlujCGIlgUv6pC6-GVFHplqVYRSZpbEegNDdg9eHVAib31n4gk_nQReXXk9AIdfEoB2tdMOPEN_vpS605_dS_DSkTJWkh?purpose=fullsize"
+      alt="Beautiful natural environment">
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section id="tickets" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Plan Your Visit</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Choose Your Adventure</h2>
+      <p class="text-gray-400 mt-4">Explore our sample ticket packages and plan your day at AquaWorld.</p>
+      <p class="text-gray-500 text-xs mt-2">Demo prices for this portfolio project; not actual admission rates.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7 max-w-5xl mx-auto">
+      <div class="rounded-3xl p-8 border border-white/15 bg-[#0A2A43]">
+        <p class="text-aqua font-semibold">Explorer</p>
+        <h3 class="text-2xl font-bold mt-3">Single Visit</h3>
+        <p class="text-gray-400 text-sm mt-3">For one curious explorer.</p>
+        <p class="text-4xl font-extrabold mt-7">₹499 <span class="text-sm text-gray-400 font-normal">/ person</span></p>
+        <ul class="mt-7 space-y-4 text-sm text-gray-300">
+          <li>✓ General aquarium admission</li>
+          <li>✓ Access to regular exhibits</li>
+          <li>✓ Self-guided exploration</li>
+          <li>✓ Photography in permitted areas</li>
+        </ul>
+        <button onclick="bookTicket('Explorer',499)" class="w-full mt-8 border border-aqua text-aqua rounded-full py-3 hover:bg-aqua hover:text-ocean transition">Select Ticket</button>
+      </div>
+
+      <div class="rounded-3xl p-8 border-2 border-aqua bg-[#0C344C] relative">
+        <span class="absolute -top-3 right-6 bg-aqua text-ocean text-xs font-bold px-4 py-1.5 rounded-full">POPULAR</span>
+        <p class="text-aqua font-semibold">Family Fun</p>
+        <h3 class="text-2xl font-bold mt-3">Family Package</h3>
+        <p class="text-gray-300 text-sm mt-3">For a family of four.</p>
+        <p class="text-4xl font-extrabold mt-7">₹1,499 <span class="text-sm text-gray-400 font-normal">/ package</span></p>
+        <ul class="mt-7 space-y-4 text-sm text-gray-300">
+          <li>✓ Admission for four visitors</li>
+          <li>✓ Regular exhibit access</li>
+          <li>✓ Family activity guide</li>
+          <li>✓ Great for weekend outings</li>
+        </ul>
+        <button onclick="bookTicket('Family Fun',1499)" class="w-full mt-8 bg-aqua text-ocean font-bold rounded-full py-3 hover:bg-white transition">Select Ticket</button>
+      </div>
+
+      <div class="rounded-3xl p-8 border border-white/15 bg-[#0A2A43]">
+        <p class="text-aqua font-semibold">Learning Journey</p>
+        <h3 class="text-2xl font-bold mt-3">School Group</h3>
+        <p class="text-gray-400 text-sm mt-3">For students and educators.</p>
+        <p class="text-4xl font-extrabold mt-7">₹299 <span class="text-sm text-gray-400 font-normal">/ student</span></p>
+        <ul class="mt-7 space-y-4 text-sm text-gray-300">
+          <li>✓ Educational visit package</li>
+          <li>✓ Group learning activities</li>
+          <li>✓ Marine-life fact sheet</li>
+          <li>✓ Advance group enquiry</li>
+        </ul>
+        <button onclick="bookTicket('School Group',299)" class="w-full mt-8 border border-aqua text-aqua rounded-full py-3 hover:bg-aqua hover:text-ocean transition">Select Ticket</button>
+      </div>
+    </div>
+
+    <div id="bookingPanel" class="hidden max-w-xl mx-auto mt-10 bg-[#0A2A43] border border-aqua/50 p-7 rounded-2xl">
+      <h3 class="text-xl font-bold">Your Ticket Enquiry</h3>
+      <p id="selectedTicket" class="text-aqua mt-2"></p>
+      <label class="block mt-5 mb-2 text-sm" for="visitorName">Your name</label>
+      <input id="visitorName" class="w-full p-3 rounded-lg bg-ocean border border-white/20 text-white" placeholder="Enter your name">
+      <label class="block mt-4 mb-2 text-sm" for="visitorCount">Number of visitors</label>
+      <input id="visitorCount" type="number" min="1" max="20" value="1" class="w-full p-3 rounded-lg bg-ocean border border-white/20 text-white">
+      <p id="bookingTotal" class="mt-4 font-bold text-aqua"></p>
+      <button id="confirmBooking" class="mt-5 bg-aqua text-ocean font-bold px-6 py-3 rounded-full hover:bg-white transition">Review Enquiry</button>
+      <p id="bookingMessage" class="text-sm mt-4 text-gray-300" role="status"></p>
+    </div>
+  </div>
+</section>
+
+<!-- VISITOR INFORMATION -->
+<section class="py-20 px-6 bg-[#092940]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Everything You Need</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Visitor Information</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-7 rounded-2xl border border-white/10 bg-ocean">
+        <p class="text-3xl">📍</p>
+        <h3 class="font-bold text-lg mt-4">Location</h3>
+        <p class="text-gray-400 text-sm leading-6 mt-3">AquaWorld Visitor Centre<br>Chennai, Tamil Nadu, India</p>
+      </div>
+      <div class="p-7 rounded-2xl border border-white/10 bg-ocean">
+        <p class="text-3xl">🕒</p>
+        <h3 class="font-bold text-lg mt-4">Opening Hours</h3>
+        <p class="text-gray-400 text-sm leading-6 mt-3">Monday – Sunday<br>10:00 AM – 6:00 PM<br>Sample hours for the demo</p>
+      </div>
+      <div class="p-7 rounded-2xl border border-white/10 bg-ocean">
+        <p class="text-3xl">🎟️</p>
+        <h3 class="font-bold text-lg mt-4">Tickets</h3>
+        <p class="text-gray-400 text-sm leading-6 mt-3">Explore sample ticket packages. Group visits can be planned in advance.</p>
+      </div>
+      <div class="p-7 rounded-2xl border border-white/10 bg-ocean">
+        <p class="text-3xl">♿</p>
+        <h3 class="font-bold text-lg mt-4">Visitor Comfort</h3>
+        <p class="text-gray-400 text-sm leading-6 mt-3">Plan a relaxed visit with breaks, comfortable clothing and time for every exhibit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Visitor Stories</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Moments Worth Remembering</h2>
+      <p class="text-gray-400 mt-4">Sample testimonials demonstrating the visitor review section.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-7">
+      <div class="p-7 rounded-2xl bg-[#0A2A43] border border-white/10">
+        <p class="text-aqua text-xl">★★★★★</p>
+        <p class="text-gray-300 leading-7 mt-5">"The underwater exhibits are beautiful. It is a wonderful concept for families who want to learn about marine life together."</p>
+        <div class="mt-6 border-t border-white/10 pt-5">
+          <p class="font-bold">Priya S.</p><p class="text-sm text-gray-500 mt-1">Family Visitor</p>
+        </div>
+      </div>
+      <div class="p-7 rounded-2xl bg-[#0A2A43] border border-white/10">
+        <p class="text-aqua text-xl">★★★★★</p>
+        <p class="text-gray-300 leading-7 mt-5">"I enjoyed learning about coral reefs and ocean conservation. The educational displays make complex topics easier to understand."</p>
+        <div class="mt-6 border-t border-white/10 pt-5">
+          <p class="font-bold">Arjun M.</p><p class="text-sm text-gray-500 mt-1">Student Visitor</p>
+        </div>
+      </div>
+      <div class="p-7 rounded-2xl bg-[#0A2A43] border border-white/10">
+        <p class="text-aqua text-xl">★★★★★</p>
+        <p class="text-gray-300 leading-7 mt-5">"A lovely place for curious minds. The marine species section encourages children to ask questions and explore more."</p>
+        <div class="mt-6 border-t border-white/10 pt-5">
+          <p class="font-bold">Sneha R.</p><p class="text-sm text-gray-500 mt-1">Nature Enthusiast</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 px-6 bg-mist text-ocean">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-sea uppercase tracking-[4px] text-sm font-bold mb-3">Need Help?</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="faq-item border border-gray-200 rounded-xl bg-white overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left p-5 font-semibold gap-4">
+          What can I explore at AquaWorld? <span class="faq-icon text-xl">+</span>
+        </button>
+        <p class="faq-answer hidden px-5 pb-5 text-gray-600 leading-7">Explore themed marine exhibits, learn about aquatic habitats, discover fascinating species and enjoy educational experiences for different age groups.</p>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-xl bg-white overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left p-5 font-semibold gap-4">
+          Is AquaWorld suitable for children? <span class="faq-icon text-xl">+</span>
+        </button>
+        <p class="faq-answer hidden px-5 pb-5 text-gray-600 leading-7">Yes. This website presents AquaWorld as a family-friendly concept with educational exhibits and activities for young explorers.</p>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-xl bg-white overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left p-5 font-semibold gap-4">
+          Can schools arrange group visits? <span class="faq-icon text-xl">+</span>
+        </button>
+        <p class="faq-answer hidden px-5 pb-5 text-gray-600 leading-7">The demo includes a school group package. A real aquarium would need to confirm its actual availability, rates and booking procedure.</p>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-xl bg-white overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left p-5 font-semibold gap-4">
+          Can I book tickets online? <span class="faq-icon text-xl">+</span>
+        </button>
+        <p class="faq-answer hidden px-5 pb-5 text-gray-600 leading-7">You can try the interactive ticket enquiry on this demo website. It calculates a sample total but does not process a real payment or create a real reservation.</p>
+      </div>
+      <div class="faq-item border border-gray-200 rounded-xl bg-white overflow-hidden">
+        <button class="faq-btn w-full flex justify-between items-center text-left p-5 font-semibold gap-4">
+          How can I help protect the ocean? <span class="faq-icon text-xl">+</span>
+        </button>
+        <p class="faq-answer hidden px-5 pb-5 text-gray-600 leading-7">Reduce disposable plastic, dispose of waste responsibly, avoid disturbing wildlife and support credible marine conservation programmes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="py-20 px-6 bg-gradient-to-r from-[#07566A] to-[#087E8B]">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-4xl mb-4">🌊</p>
+    <h2 class="text-3xl md:text-4xl font-extrabold">Stay Connected to the Ocean</h2>
+    <p class="text-white/80 mt-4 leading-7">Discover marine-life facts, conservation tips and updates about upcoming aquarium activities.</p>
+    <form id="newsletterForm" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+      <input id="newsletterEmail" type="email" required placeholder="Enter your email address"
+        class="flex-1 px-5 py-4 rounded-full text-ocean outline-none" aria-label="Email address">
+      <button class="bg-ocean text-white font-bold px-7 py-4 rounded-full hover:bg-white hover:text-ocean transition">Subscribe</button>
+    </form>
+    <p id="newsletterMessage" class="mt-4 text-sm" role="status"></p>
+    <p class="text-xs text-white/60 mt-3">Demo only: your email is not stored or sent to a server.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+    <div>
+      <p class="text-aqua uppercase tracking-[4px] text-sm font-bold mb-3">Get in Touch</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">Let's Plan Your Visit</h2>
+      <p class="text-gray-400 mt-5 leading-8">Have a question about an educational visit, group activity or ticket package? Use the demo enquiry form to try the website's interactive contact experience.</p>
+      <div class="mt-8 space-y-5 text-gray-300">
+        <p>📍 <span class="ml-2">Chennai, Tamil Nadu, India</span></p>
+        <p>✉️ <span class="ml-2">hello@aquaworld.example</span></p>
+        <p>🕒 <span class="ml-2">Sample hours: 10:00 AM – 6:00 PM</span></p>
+      </div>
+    </div>
+
+    <form id="contactForm" class="bg-[#0A2A43] rounded-2xl p-7 md:p-9 border border-white/10">
+      <label class="block text-sm mb-2" for="contactName">Full Name</label>
+      <input id="contactName" required class="w-full rounded-lg bg-ocean border border-white/15 p-3.5 mb-5 outline-none focus:border-aqua" placeholder="Your name">
+
+      <label class="block text-sm mb-2" for="contactEmail">Email Address</label>
+      <input id="contactEmail" type="email" required class="w-full rounded-lg bg-ocean border border-white/15 p-3.5 mb-5 outline-none focus:border-aqua" placeholder="you@example.com">
+
+      <label class="block text-sm mb-2" for="contactSubject">Enquiry Type</label>
+      <select id="contactSubject" class="w-full rounded-lg bg-ocean border border-white/15 p-3.5 mb-5 outline-none focus:border-aqua">
+        <option>General Enquiry</option>
+        <option>Ticket Information</option>
+        <option>School Visit</option>
+        <option>Group Booking</option>
+        <option>Educational Programme</option>
+      </select>
+
+      <label class="block text-sm mb-2" for="contactMessage">Your Message</label>
+      <textarea id="contactMessage" required rows="4" class="w-full rounded-lg bg-ocean border border-white/15 p-3.5 mb-5 outline-none focus:border-aqua" placeholder="How can we help?"></textarea>
+
+      <button class="w-full bg-aqua text-ocean font-bold py-4 rounded-full hover:bg-white transition">Submit Enquiry →</button>
+      <p id="contactFeedback" class="text-sm mt-4 text-aqua" role="status"></p>
+      <p class="text-xs text-gray-500 mt-2">Demo form: messages are not sent or stored.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-deep border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <a href="#home" class="text-2xl font-extrabold">Aqua<span class="text-aqua">World</span></a>
+      <p class="text-gray-400 text-sm leading-7 mt-5">Explore. Learn. Protect. Discover the beauty of marine life and help create a brighter future for our oceans.</p>
+      <p class="text-aqua mt-5 text-sm">Together for a cleaner ocean.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg">Quick Links</h3>
+      <ul class="mt-5 space-y-3 text-gray-400 text-sm">
+        <li><a href="#home" class="hover:text-aqua">Home</a></li>
+        <li><a href="#about" class="hover:text-aqua">About Us</a></li>
+        <li><a href="#exhibits" class="hover:text-aqua">Marine Exhibits</a></li>
+        <li><a href="#gallery" class="hover:text-aqua">Gallery</a></li>
+        <li><a href="#experiences" class="hover:text-aqua">Experiences</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg">Visitor Information</h3>
+      <ul class="mt-5 space-y-3 text-gray-400 text-sm">
+        <li><a href="#tickets" class="hover:text-aqua">Ticket Packages</a></li>
+        <li><a href="#contact" class="hover:text-aqua">Group Enquiries</a></li>
+        <li><a href="#contact" class="hover:text-aqua">Contact Us</a></li>
+        <li><a href="#contact" class="hover:text-aqua">Educational Visits</a></li>
+        <li><a href="#contact" class="hover:text-aqua">Help & Support</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-lg">Follow Our Journey</h3>
+      <p class="text-gray-400 text-sm leading-7 mt-5">Share your love for the ocean and inspire others to care for marine life.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#contact" aria-label="Social links placeholder" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-aqua hover:text-ocean transition">f</a>
+        <a href="#contact" aria-label="Social links placeholder" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-aqua hover:text-ocean transition">◎</a>
+        <a href="#contact" aria-label="Social links placeholder" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-aqua hover:text-ocean transition">▶</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-6 border-t border-white/10 flex flex-col md:flex-row gap-3 justify-between text-xs text-gray-500">
+    <p>© <span id="year"></span> AquaWorld. Portfolio demonstration project.</p>
+    <div class="flex gap-5"><a href="#contact" class="hover:text-aqua">Privacy</a><a href="#contact" class="hover:text-aqua">Terms</a><a href="#home" class="hover:text-aqua">Back to Top ↑</a></div>
+  </div>
+</footer>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+  menuBtn.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.textContent = '☰';
+  });
+});
+
+// Exhibit category filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const animalCards = document.querySelectorAll('.animal-card');
+const noResults = document.getElementById('noResults');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.filter;
+    let visibleCount = 0;
+
+    filterButtons.forEach(btn => {
+      btn.classList.remove('bg-aqua', 'text-ocean', 'font-semibold');
+      btn.classList.add('border', 'border-white/20');
+    });
+
+    button.classList.add('bg-aqua', 'text-ocean', 'font-semibold');
+    button.classList.remove('border', 'border-white/20');
+
+    animalCards.forEach(card => {
+      const show = category === 'all' || card.dataset.category === category;
+      card.classList.toggle('hidden', !show);
+      if (show) visibleCount++;
+    });
+
+    noResults.classList.toggle('hidden', visibleCount !== 0);
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const answer = button.nextElementSibling;
+    const icon = button.querySelector('.faq-icon');
+    const isOpening = answer.classList.contains('hidden');
+
+    document.querySelectorAll('.faq-answer').forEach(item => item.classList.add('hidden'));
+    document.querySelectorAll('.faq-icon').forEach(item => item.textContent = '+');
+
+    if (isOpening) {
+      answer.classList.remove('hidden');
+      icon.textContent = '−';
+    }
+  });
+});
+
+// Demo ticket enquiry
+let selectedPrice = 0;
+let selectedPackage = '';
+
+function bookTicket(packageName, price) {
+  selectedPackage = packageName;
+  selectedPrice = price;
+
+  document.getElementById('bookingPanel').classList.remove('hidden');
+  document.getElementById('selectedTicket').textContent =
+    packageName + ' — ₹' + price.toLocaleString('en-IN') + ' per package/person as described above';
+
+  document.getElementById('visitorCount').value = 1;
+  document.getElementById('bookingMessage').textContent = '';
+  updateBookingTotal();
+
+  document.getElementById('bookingPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function updateBookingTotal() {
+  const count = Number(document.getElementById('visitorCount').value);
+  const safeCount = Number.isInteger(count) && count >= 1 && count <= 20 ? count : 0;
+
+  document.getElementById('bookingTotal').textContent = safeCount
+    ? 'Sample total: ₹' + (selectedPrice * safeCount).toLocaleString('en-IN')
+    : 'Enter a quantity from 1 to 20.';
+}
+
+document.getElementById('visitorCount').addEventListener('input', updateBookingTotal);
+
+document.getElementById('confirmBooking').addEventListener('click', () => {
+  const name = document.getElementById('visitorName').value.trim();
+  const count = Number(document.getElementById('visitorCount').value);
+  const message = document.getElementById('bookingMessage');
+
+  if (!name) {
+    message.textContent = 'Please enter your name.';
+    return;
+  }
+
+  if (!Number.isInteger(count) || count < 1 || count > 20) {
+    message.textContent = 'Please enter between 1 and 20 packages/visitors.';
+    return;
+  }
+
+  message.textContent =
+    'Thank you, ' + name + '! Your demo enquiry for ' + count + ' ' +
+    selectedPackage + ' package(s) totals ₹' +
+    (selectedPrice * count).toLocaleString('en-IN') +
+    '. No actual booking or payment has been made.';
+});
+
+// Demo newsletter form
+document.getElementById('newsletterForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const email = document.getElementById('newsletterEmail').value.trim();
+
+  document.getElementById('newsletterMessage').textContent =
+    'Thank you! The demo subscription form was submitted for ' + email +
+    '. No email has been stored or sent.';
+
+  event.target.reset();
+});
+
+// Demo contact form
+document.getElementById('contactForm').addEventListener('submit', event => {
+  event.preventDefault();
+
+  document.getElementById('contactFeedback').textContent =
+    'Thank you, ' + document.getElementById('contactName').value.trim() +
+    '! Your demo enquiry has been validated. It was not sent to a server.';
+
+  event.target.reset();
+});
+
+// Dynamic copyright year
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
